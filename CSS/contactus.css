@@ -388,7 +388,6 @@ footer {
 
 /* BOTTOM */
 .footer-bottom {
-  margin-top: 40px;
   font-size: 18px;
   display: flex;
   justify-content: center;
@@ -618,3 +617,4 @@ footer {
     flex-direction: column;
   }
 }
+
