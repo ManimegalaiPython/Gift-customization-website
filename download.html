@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Order Details</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  margin:0;
+  padding:30px;
+  background:#fff;
+}
+
+.order-wrapper{
+  max-width:1100px;
+  margin:auto;
+  border:2px solid #F1C40F;
+}
+
+/* TOP YELLOW BAR */
+.top-bar{
+  background:#F1C40F;
+  padding:20px;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr) auto;
+  align-items:center;
+  gap:20px;
+}
+
+.top-item{
+  font-size:14px;
+}
+
+.top-item span{
+  display:block;
+  font-weight:600;
+  margin-top:5px;
+}
+
+.invoice-btn{
+  background:#fff;
+  border:none;
+  padding:10px 18px;
+  border-radius:25px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+/* PRODUCT ROW */
+.product-row{
+  margin:25px;
+  border:1px solid #bbb;
+  border-radius:4px;
+  padding:15px;
+  display:grid;
+  grid-template-columns:80px 1fr 180px 100px;
+  align-items:center;
+  gap:20px;
+}
+
+.product-row img{
+  width:70px;
+  height:70px;
+  object-fit:cover;
+}
+
+.price{
+  color:green;
+  font-weight:600;
+}
+
+/* YELLOW ROWS */
+.amount-row{
+  margin:20px 25px;
+  background:#F1C40F;
+  border:1px solid #000;
+  padding:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:14px;
+}
+
+/* TOTAL */
+.total-row{
+  margin:30px 25px;
+  display:flex;
+  justify-content:space-between;
+  font-size:15px;
+}
+
+.total-row span:last-child{
+  color:green;
+  font-weight:600;
+}
+
+/* TRACK BUTTON */
+.track-btn{
+  margin:10px 25px 25px auto;
+  display:block;
+  background:#F1C40F;
+  border:none;
+  padding:8px 20px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="order-wrapper">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-item">
+      Order ID
+      <span>#SJKD456FH</span>
+    </div>
+    <div class="top-item">
+      Payment Method
+      <span>G-PAY</span>
+    </div>
+    <div class="top-item">
+      Transaction Id
+      <span>TF59DHJK</span>
+    </div>
+    <div class="top-item">
+      Estimate Delivery Date
+      <span>28 June 2025</span>
+    </div>
+
+    <button class="invoice-btn">Download Invoice</button>
+  </div>
+
+  <!-- PRODUCT -->
+  <div class="product-row">
+    <img src="images/image 52.png">
+    <div>The Picture Frame set</div>
+    <div>22 August 2025</div>
+    <div class="price">₹1000</div>
+  </div>
+
+  <!-- SHIPPING -->
+  <div class="amount-row">
+    <span>Shipping</span>
+    <span>Rs.00.0</span>
+  </div>
+
+  <!-- TAX -->
+  <div class="amount-row">
+    <span>Taxes</span>
+    <span>Rs.00.0</span>
+  </div>
+
+  <!-- COUPON -->
+  <div class="amount-row">
+    <span>Coupon Discount</span>
+    <span>Rs.150</span>
+  </div>
+
+  <!-- TOTAL -->
+  <div class="total-row">
+    <span>Total</span>
+    <span>₹850</span>
+  </div>
+
+  <!-- TRACK -->
+  <button class="track-btn">Track Order</button>
+
+</div>
+
+</body>
+</html>

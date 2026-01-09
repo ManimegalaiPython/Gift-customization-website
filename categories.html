@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Categories Section</title>
+
+  <!-- Poppins Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+    <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="CSS/categories.css">
+</head>
+<body>
+
+     <header class="header">
+    <!-- Logo -->
+    <div class="logo-section">
+      <img src="images/Frame 427318985.png" alt="Logo">
+      <h2>VibeyGiftoy</h2>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="nav">
+      <a href="home1.html">Home</a>
+      <a href="categories.html" class="active">Categories</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contactus.html">Contact us</a>
+      <a href="aboutus.html">About us</a>
+    </nav>
+
+    <!-- Search + Icons -->
+    <div class="right-section">
+      <div class="search-box">
+        <input type="text" placeholder="Personalization gifts">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <!-- Icons -->
+      <div class="icons">
+        <img src="images/profile.png" class="profile" onclick="toggleProfileMenu()">
+
+        <a href="wishlist.html"> <i class="fa-regular fa-heart"></i></a>
+          <a href="tray.html"> <i class="fa-solid fa-cart-shopping"></i></a>
+        <div class="bell-wrapper">
+          <i class="fa-regular fa-bell" id="bellIcon"></i>
+
+          <!-- Notification Popup -->
+          <div class="notification-popup" id="notificationPopup">
+            <span class="close-popup" id="closePopup">&times;</span>
+
+            <h4>🎁 Order / Delivery Notifications</h4>
+            <p>
+              We offer fast and reliable delivery to ensure your gifts arrive fresh,
+              on time, and beautifully packaged.
+            </p>
+            <p>
+              Choose from standard, express, or same-day delivery options at checkout.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="profile-dropdown" id="profileMenu">
+        <h3>My Accounts</h3>
+        <div class="divider"></div>
+
+        <a href="accountinfo.html" class="menu-item">Account Information</a>
+        <a href="myorder.html" class="menu-item">My Order</a>
+        <a href="tracking.html" class="menu-item">Tracking Order</a>
+        <a href="password.html" class="menu-item">Password Manager</a>
+        <a href="logout.html" class="menu-item">Logout</a>
+      </div>
+
+    </div>
+  </header>
+<section class="category-section">
+
+  <div class="image-row">
+    <img src="images/image 48.png" alt="Gift Box">
+    <img src="images/image 49.png" alt="Mugs">
+    <img src="images/image 50.png" alt="Photo Frame">
+  </div>
+
+  <h2 class="category-title">Categories</h2>
+
+</section>
+
+<section class="filter-section">
+  <h2 class="filter-titile">Filter section</h2>
+
+  <div class="filter-wrapper">
+    <div class="filter-bar">
+      
+
+      <!-- Occasion -->
+      <!-- Occasion -->
+<div class="filter-col">
+  <div class="filter-header" data-label="Occasion" onclick="toggleDropdown('occasion', this)">
+    Occasion <span>⌃</span>
+  </div>
+
+  <div class="dropdown" id="occasion">
+    <label><input type="radio" name="occasion" value="Birthday"> Birthday</label>
+    <label><input type="radio" name="occasion" value="Anniversary"> Anniversary</label>
+    <label><input type="radio" name="occasion" value="Wedding"> Wedding</label>
+    <label><input type="radio" name="occasion" value="Engagement"> Engagement</label>
+
+    <button class="submit-btn" onclick="applyFilter(this)">Submit</button>
+  </div>
+</div>
+
+
+      <div class="divider"></div>
+
+      <!-- Gift Type -->
+      <div class="filter-col">
+        <div class="filter-header" onclick="toggleDropdown('gift')">
+          Gift type <span>⌃</span>
+        </div>
+        <div class="dropdown" id="gift">
+          <label><input type="radio" name="gift"> Personalized</label>
+          <label><input type="radio" name="gift"> Home Decor</label>
+          <label><input type="radio" name="gift"> Tech Gadgets</label>
+          <label><input type="radio" name="gift"> Toys & Games</label>
+          <button class="submit-btn">Submit</button>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Price Type -->
+      <div class="filter-col">
+        <div class="filter-header" onclick="toggleDropdown('price')">
+          Price type <span>⌃</span>
+        </div>
+        <div class="dropdown" id="price">
+          <label><input type="radio" name="price"> Under $10</label>
+          <label><input type="radio" name="price"> $10 – $25</label>
+          <label><input type="radio" name="price"> $25 – $50</label>
+          <label><input type="radio" name="price"> Over $200</label>
+          <button class="submit-btn">Submit</button>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Delivery -->
+      <div class="filter-col">
+        <div class="filter-header" onclick="toggleDropdown('delivery')">
+          Delivery <span>⌃</span>
+        </div>
+        <div class="dropdown" id="delivery">
+          <label><input type="radio" name="delivery"> Same-Day</label>
+          <label><input type="radio" name="delivery"> Next-Day</label>
+          <label><input type="radio" name="delivery"> Scheduled</label>
+          <label><input type="radio" name="delivery"> Express</label>
+          <button class="submit-btn">Submit</button>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="explore-btn" onclick="window.location.href='categories1.html'">Explore now</button>
+
+  </div>
+</section>
+
+
+<div class="products">
+  <!-- CARD -->
+  <div class="card">
+    <div class="img-box">
+      <img src="images/image 10.png">
+      <span class="heart">♡</span>
+    </div>
+    <h4>The Picture Cup set</h4>
+    <p class="price">Rs: 1000 Per Package</p>
+    <div class="btns">
+<button class="shop" onclick="window.location.href='tray.html'">Shop now</button>
+<button class="custom">Customize</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-box">
+      <img src="images/image 20.png">
+      <span class="heart">♡</span>
+    </div>
+    <h4>The Gadget accessories</h4>
+    <p class="price">Rs: 1000 Per Package</p>
+    <div class="btns">
+<button class="shop" onclick="window.location.href='tray.html'">Shop now</button>
+      <button class="custom">Customize</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-box">
+      <img src="images/image 21.png">
+      <span class="heart">♡</span>
+    </div>
+    <h4>The Picture Frame set</h4>
+    <p class="price">Rs: 1000 Per Package</p>
+    <div class="btns">
+<button class="shop" onclick="window.location.href='tray.html'">Shop now</button>
+      <button class="custom">Customize</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-box">
+      <img src="images/image 22.png">
+      <span class="heart">♡</span>
+    </div>
+    <h4>The subscription set</h4>
+    <p class="price">Rs: 1000 Per Package</p>
+    <div class="btns">
+<button class="shop" onclick="window.location.href='tray.html'">Shop now</button>
+      <button class="custom">Customize</button>
+    </div>
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="card">
+    <div class="img-box">
+      <img src="images/image 23.png">
+      <span class="heart">♡</span>
+    </div>
+    <h4>The Greeting Frame set</h4>
+    <p class="price">Rs: 1000 Per Package</p>
+    <div class="btns">
+<button class="shop" onclick="window.location.href='tray.html'">Shop now</button>
+      <button class="custom">Customize</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-box">
+      <img src="images/image 24.png">
+      <span class="heart">♡</span>
+    </div>
+    <h4>The Flower Combo set</h4>
+    <p class="price">Rs: 1000 Per Package</p>
+    <div class="btns">
+<button class="shop" onclick="window.location.href='tray.html'">Shop now</button>
+      <button class="custom">Customize</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-box">
+      <img src="images/image 25.png">
+      <span class="heart">♡</span>
+    </div>
+    <h4>The Toys Combo set</h4>
+    <p class="price">Rs: 1000 Per Package</p>
+    <div class="btns">
+<button class="shop" onclick="window.location.href='tray.html'">Shop now</button>
+      <button class="custom">Customize</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-box">
+      <img src="images/image 26.png">
+      <span class="heart">♡</span>
+    </div>
+    <h4>The Stationary Sets</h4>
+    <p class="price">Rs: 1000 Per Package</p>
+    <div class="btns">
+<button class="shop" onclick="window.location.href='tray.html'">Shop now</button>
+      <button class="custom">Customize</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-box">
+      <img src="images/image 27.png">
+      <span class="heart">♡</span>
+    </div>
+    <h4>The picture Frame Sets</h4>
+    <p class="price">Rs: 1000 Per Package</p>
+    <div class="btns">
+<button class="shop" onclick="window.location.href='tray.html'">Shop now</button>
+      <button class="custom">Customize</button>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="img-box">
+      <img src="images/image 15.png">
+      <span class="heart">♡</span>
+    </div>
+    <h4>The Picture frame Sets</h4>
+    <p class="price">Rs: 1000 Per Package</p>
+    <div class="btns">
+<button class="shop" onclick="window.location.href='tray.html'">Shop now</button>
+      <button class="custom">Customize</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-box">
+      <img src="images/image 18.png">
+      <span class="heart">♡</span>
+    </div>
+    <h4>The picture Clock Sets</h4>
+    <p class="price">Rs: 1000 Per Package</p>
+    <div class="btns">
+<button class="shop" onclick="window.location.href='tray.html'">Shop now</button>
+      <button class="custom">Customize</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-box">
+      <img src="images/image 19.png">
+      <span class="heart">♡</span>
+    </div>
+    <h4>The Family Frame Sets</h4>
+    <p class="price">Rs: 1000 Per Package</p>
+    <div class="btns">
+<button class="shop" onclick="window.location.href='tray.html'">Shop now</button>
+      <button class="custom">Customize</button>
+    </div>
+  </div>
+</div>
+
+ <footer>
+    <div class="footer-container">
+      <!-- Logo -->
+      <div class="footer-logo">
+        <img src="images/Frame 427318985.png" alt="Logo">
+        <h1 style="font-family: 'Dancing Script', cursive; font-size: 22px; font-weight: 400;">VibeyGiftoy</h1>
+      </div>
+
+      <!-- Links Columns -->
+      <div class="footer-links">
+        <div>
+          <a href="#">Customer service</a>
+          <a href="#">My Account</a>
+          <a href="#">Checkup</a>
+          <a href="#">FAQ</a>
+          <a href="#">Return</a>
+        </div>
+
+        <div>
+          <a href="#">Company</a>
+          <a href="#">About us</a>
+          <a href="#">Blogs</a>
+          <a href="#">Contact us</a>
+          <a href="#">Career</a>
+        </div>
+
+        <div>
+          <a href="#">Our information</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms & Condition</a>
+          <a href="#">Customer Feed back</a>
+        </div>
+      </div>
+
+      <!-- Contact Column -->
+      <div class="footer-contact">
+        <span>Mobile: 123-456-789</span>
+        <span>Email: Vibeygif@gmail.com</span>
+        <span>Address: 12, north city-001</span>
+
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+     <p> &copy; 2025 Giftey.co. All rights reserved.<br>
+      <a href="#"><b>Terms & Conditions</b></a> | <a href="#"><b>Privacy Policy</b></a></p>
+    </div>
+  </footer>
+
+  <!-- CUSTOMIZE POPUP -->
+<div class="popup-overlay" id="customPopup">
+
+  <div class="popup-box">
+
+    <!-- CLOSE ICON -->
+    <span class="close-popup" id="closePopup">✕</span>
+
+    <h2>Gift Customization Details Form</h2>
+
+    <div class="popup-grid">
+      <div>
+        <label>Recipient’s Name</label>
+        <input type="text">
+      </div>
+
+      <div>
+        <label>Color choice</label>
+        <input type="text">
+      </div>
+
+      <div>
+        <label>Date/month/year</label>
+        <input type="date">
+      </div>
+
+      <div>
+        <label>Fonts style</label>
+        <input type="text">
+      </div>
+
+      <div class="message-box">
+        <label>Custom Message</label>
+        <textarea></textarea>
+      </div>
+
+     <div class="upload-row">
+  <div class="upload-box" id="uploadBox">
+    <i class="fa-solid fa-arrow-up-from-bracket"></i>
+    <input type="file" id="fileInput" accept="image/*" hidden>
+  </div>
+</div>
+
+    </div>
+
+    <div class="popup-bottom">
+      <img src="images/image 9.png">
+
+      <div class="radio-group">
+        <label><input type="radio" name="gift"> Yes</label>
+        <label><input type="radio" name="gift"> No</label>
+      </div>
+
+<button type="button" class="submit-button" onclick="submitCustomization()">
+  Submit
+</button>
+    </div>
+     <!-- SUCCESS SECTION -->
+    <div id="successSection" class="success-box">
+      <h2 class="success-title">Customization details updated Success</h2>
+      <p class="success-text">Check your Dashboard</p>
+    </div>
+
+  </div>
+</div>
+
+
+
+  <script src="js/profile.js"></script>
+  <script src="js/script.js"></script>
+<script src="js/custom.js"></script>
+
+
+
+</body>
+</html>

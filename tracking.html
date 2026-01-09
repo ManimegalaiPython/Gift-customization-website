@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Your Order</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+ <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/tracking.css">
+</head>
+
+<body>
+     
+  <header class="header">
+    <!-- Logo -->
+    <div class="logo-section">
+        <img src="images/Frame 427318985.png" alt="Logo" class="blink-logo">
+      <h2>VibeyGiftoy</h2>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="nav">
+      <a href="home1.html" class="active">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contactus.html">Contact us</a>
+      <a href="aboutus.html">About us</a>
+    </nav>
+
+    <!-- Search + Icons -->
+    <div class="right-section">
+      <div class="search-box">
+        <input type="text" placeholder="Personalization gifts">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <!-- Icons -->
+      <div class="icons">
+        <img src="images/profile.png" class="profile" onclick="toggleProfileMenu()">
+
+       <a href="wishlist.html"> <i class="fa-regular fa-heart"></i></a>
+          <a href="tray.html"> <i class="fa-solid fa-cart-shopping"></i></a>
+        <div class="bell-wrapper">
+          <i class="fa-regular fa-bell" id="bellIcon"></i>
+
+          <!-- Notification Popup -->
+          <div class="notification-popup" id="notificationPopup">
+            <span class="close-popup" id="closePopup">&times;</span>
+
+            <h4>🎁 Order / Delivery Notifications</h4>
+            <p>
+              We offer fast and reliable delivery to ensure your gifts arrive fresh,
+              on time, and beautifully packaged.
+            </p>
+            <p>
+              Choose from standard, express, or same-day delivery options at checkout.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="profile-dropdown" id="profileMenu">
+        <h3>My Accounts</h3>
+        <div class="divider"></div>
+
+        <a href="accountinfo.html" class="menu-item">Account Information</a>
+        <a href="myorder.html" class="menu-item">My Order</a>
+        <a href="tracking.html" class="menu-item">Tracking Order</a>
+        <a href="password.html" class="menu-item">Password Manager</a>
+        <a href="logout.html" class="menu-item">Logout</a>
+      </div>
+
+    </div>
+  </header>
+
+<h1>Track Your Order</h1>
+
+<div class="order-info">
+    <p>order status</p>
+    <p class="center">Order Id: SJKD456FH</p>
+</div>
+
+<div class="track-box">
+
+    <div class="status-row">
+        <div class="progress-line"></div>
+
+        <div class="status">
+           Order Placed
+            <div class="check">✓</div>
+           
+            <div class="date">28 June 2025</div>
+            <div class="time">11 AM</div>
+        </div>
+
+        <div class="status">
+           Accepted
+            <div class="check">✓</div>
+           
+            <div class="date">28 June 2025</div>
+            <div class="time">11:15 AM</div>
+        </div>
+
+        <div class="status1">
+            In Progress
+            <div class="date1">Expected</div>
+            <div class="time1">28 June 2025</div>
+        </div>
+
+        <div class="status1">
+            On The Way
+            <div class="date1">Expected</div>
+            <div class="time1">28 June 2025</div>
+        </div>
+
+        <div class="status1">
+            Delivered
+            <div class="date1">Expected</div>
+            <div class="time1">28 June 2025</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Product -->
+<div class="product-box">
+    <div class="product-left">
+        <img src="images/image 52.png">
+        <div class="product-name">The Picture Frame set</div>
+    </div>
+
+    <div class="product-date">22 August 2025</div>
+    <div class="price">₹1000</div>
+</div>
+ <footer>
+    <div class="footer-container">
+      <!-- Logo -->
+      <div class="footer-logo">
+        <img src="images/Frame 427318985.png" alt="Logo" class="blink-logo">
+        <h1 style="font-family: 'Dancing Script', cursive; font-size: 22px; font-weight: 400;">VibeyGiftoy</h1>
+      </div>
+
+      <!-- Links Columns -->
+      <div class="footer-links">
+        <div>
+          <a href="#">Customer service</a>
+          <a href="#">My Account</a>
+          <a href="#">Checkup</a>
+          <a href="#">FAQ</a>
+          <a href="#">Return</a>
+        </div>
+
+        <div>
+          <a href="#">Company</a>
+          <a href="#">About us</a>
+          <a href="#">Blogs</a>
+          <a href="#">Contact us</a>
+          <a href="#">Career</a>
+        </div>
+
+        <div>
+          <a href="#">Our information</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms & Condition</a>
+          <a href="#">Customer Feed back</a>
+        </div>
+      </div>
+
+      <!-- Contact Column -->
+      <div class="footer-contact">
+        <span>Mobile: 123-456-789</span>
+        <span>Email: Vibeygif@gmail.com</span>
+        <span>Address: 12, north city-001</span>
+
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+     <p> &copy; 2025 Giftey.co. All rights reserved.<br>
+      <a href="#"><b>Terms & Conditions</b></a> | <a href="#"><b>Privacy Policy</b></a></p>
+    </div>
+  </footer>
+<script src="js/profile.js"></script>
+</body>
+</html>

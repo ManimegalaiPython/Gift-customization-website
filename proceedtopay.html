@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Payment Selection</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+ <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 40px;
+  background: #fff;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: #fff;
+}
+
+/* Logo */
+.logo-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-section img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.logo-section h2{
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* Navbar */
+.nav{
+  display: flex;
+  gap: 35px;
+}
+
+.nav a{
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.nav a.active{
+  color: #F1C40F;
+}
+
+/* Right Section */
+.right-section{
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Search */
+.search-box{
+  display: flex;
+  align-items: center;
+  border: 2px solid #F1C40F;
+  border-radius: 12px;
+  padding: 10px 15px;
+  gap: 10px;
+}
+
+.search-box input{
+  border: none;
+  outline: none;
+  font-size: 16px;
+  width: 220px;
+}
+
+.search-box i{
+  font-size: 18px;
+}
+
+/* Icons */
+.icons{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    position:relative;
+}
+
+.profile{
+    width:32px;
+    cursor:pointer;
+}
+
+/* Dropdown */
+.profile-dropdown{
+    position:absolute;
+    top:50px;
+    right:0;
+    width:240px;
+    background:#F1C40F;
+    padding:15px;
+    display:none;
+    z-index:100;
+}
+
+/* Title */
+.profile-dropdown h3{
+    font-size:16px;
+    margin-bottom:10px;
+}
+.menu-item {
+      background:#000;
+
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  padding:8px 12px;
+    margin-bottom:8px;
+  cursor: pointer;
+}
+
+
+
+
+/* Divider */
+.divider{
+    border-bottom:2px dotted #000;
+    margin-bottom:12px;
+}
+
+/* Menu items */
+.menu-item{
+    color:#fff;
+    
+    font-size:14px;
+    cursor:pointer;
+}
+
+/* Bell Wrapper */
+.bell-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Notification Popup */
+.notification-popup {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 1020px;
+  background: #F1C40F;
+  color: #000;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+  display: none;
+  z-index: 999;
+}
+
+/* Show popup */
+.notification-popup.show {
+  display: block;
+}
+
+.notification-popup h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.notification-popup p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+/* Close Button */
+.close-popup {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.payment-wrapper {
+  max-width: 800px;
+  margin: auto;
+}
+
+.payment-title {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* TOP PRODUCT BAR */
+.product-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.product-info img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.price {
+  color: green;
+  font-weight: 600;
+}
+
+/* MAIN GRID */
+.payment-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+}
+
+/* LEFT COLUMN */
+.left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.summary-box {
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.summary-box h4 {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin: 6px 0;
+}
+
+.summary-total {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.summary-total span:last-child {
+  color: green;
+}
+
+.preview-img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* RIGHT COLUMN */
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.upi-options {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.upi-option img {
+  width: 60%;
+  height: 60%;
+}
+
+.upi-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.upi-option input[type="radio"] {
+  accent-color: #F1C40F; /* yellow radio */
+}
+
+.upi-circle {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #999;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upi-circle img {
+  width: 40px;
+}
+
+/* UPI FORM */
+.upi-box {
+  border: 1px dashed #000;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* for absolute success box */
+}
+
+.upi-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 60%;
+}
+
+.upi-form label {
+  font-size: 12px;
+}
+
+.upi-form input {
+  height: 34px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  padding: 0 10px;
+}
+
+.proceed-btn {
+  width: 100px;
+  background: #F1C40F;
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.upi-container {
+  position: relative;
+}
+.payment-success {
+  display: none;          /* ✅ hidden initially */
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+
+.check-icon {
+  width: 50px;
+  height: 50px;
+  background: #28a745;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.payment-success p {
+  color: #F1C40F;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.upi-logo {
+  width: 120px;
+}
+
+
+
+footer {
+  background-color: #F1C40F;
+  color: #000;
+  padding: 50px 80px 30px;   /* more side padding like image */
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;  /* FIX */
+  flex-wrap: nowrap;        /* keep in one row */
+}
+
+/* LOGO */
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-logo img {
+  width: 120px;             /* FIX: logo bigger like image */
+  height: 120px;
+  border-radius: 50%;
+}
+
+/* LINKS */
+.footer-links {
+  display: flex;
+  gap: 90px;                /* FIX: proper column spacing */
+  text-align: left;
+}
+
+.footer-links div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;                /* FIX: vertical spacing */
+}
+
+.footer-links div a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 400;         /* FIX: lighter like image */
+  font-size: 20px;
+}
+
+/* CONTACT */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;                /* FIX: spacing */
+  text-align: left;
+  font-size: 20px;
+}
+
+/* SOCIAL ICONS */
+.social-icons {
+  display: flex;
+  gap: 14px;
+  margin-top: 25px;
+  justify-content: flex-end;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #000;
+  width: 42px;              /* FIX: icon size */
+  height: 42px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  margin-top: 40px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer-bottom a {
+  font-weight: 600;         /* FIX: not too bold */
+  text-decoration: none;
+  color: #000;
+}
+
+</style>
+</head>
+
+<body>
+
+
+  
+  <header class="header">
+    <!-- Logo -->
+    <div class="logo-section">
+      <img src="images/Frame 427318985.png" alt="Logo">
+      <h2>VibeyGiftoy</h2>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="nav">
+      <a href="home1.html" class="active">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contactus.html">Contact us</a>
+      <a href="aboutus.html">About us</a>
+    </nav>
+
+    <!-- Search + Icons -->
+    <div class="right-section">
+      <div class="search-box">
+        <input type="text" placeholder="Personalization gifts">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <!-- Icons -->
+      <div class="icons">
+        <img src="images/profile.png" class="profile" onclick="toggleProfileMenu()">
+
+       <a href="wishlist.html"> <i class="fa-regular fa-heart"></i></a>
+          <a href="tray.html"> <i class="fa-solid fa-cart-shopping"></i></a>
+        <div class="bell-wrapper">
+          <i class="fa-regular fa-bell" id="bellIcon"></i>
+
+          <!-- Notification Popup -->
+          <div class="notification-popup" id="notificationPopup">
+            <span class="close-popup" id="closePopup">&times;</span>
+
+            <h4>🎁 Order / Delivery Notifications</h4>
+            <p>
+              We offer fast and reliable delivery to ensure your gifts arrive fresh,
+              on time, and beautifully packaged.
+            </p>
+            <p>
+              Choose from standard, express, or same-day delivery options at checkout.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="profile-dropdown" id="profileMenu">
+        <h3>My Accounts</h3>
+        <div class="divider"></div>
+
+        <a href="accountinfo.html" class="menu-item">Account Information</a>
+        <a href="myorder.html" class="menu-item">My Order</a>
+        <a href="tracking.html" class="menu-item">Tracking Order</a>
+        <a href="password.html" class="menu-item">Password Manager</a>
+        <a href="logout.html" class="menu-item">Logout</a>
+      </div>
+
+    </div>
+  </header>
+<div class="payment-wrapper">
+
+  <div class="payment-title">Payment Selection</div>
+
+  <!-- PRODUCT BAR -->
+  <div class="product-bar">
+    <div class="product-info">
+      <img src="images/image 52.png">
+      <div>
+        <div>The Picture Frame set</div>
+        <small>22 August 2025</small>
+      </div>
+    </div>
+    <div class="price">₹1000</div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="payment-grid">
+
+    <!-- LEFT -->
+    <div class="left-col">
+      <div class="summary-box">
+        <h4>Order Summary</h4>
+        <div class="summary-row"><span>Items</span><span>1</span></div>
+        <div class="summary-row"><span>Subtotal</span><span>Rs.1200</span></div>
+        <div class="summary-row"><span>Shipping</span><span>Rs.0.0</span></div>
+        <div class="summary-row"><span>Taxes</span><span>Rs.0.0</span></div>
+        <div class="summary-row"><span>Coupon Discount</span><span>Rs.200</span></div>
+        <div class="summary-row summary-total">
+          <span>Total</span><span>₹1000</span>
+        </div>
+      </div>
+
+      <img src="images/image 52.png" class="preview-img">
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-col">
+
+      <div class="upi-options">
+        <label class="upi-option">
+          <input type="radio" name="upi">
+          <img src="images/image 28.png">
+        </label>
+
+        <label class="upi-option">
+          <input type="radio" name="upi">
+          <img src="images/image 29.png">
+        </label>
+
+        <label class="upi-option">
+          <input type="radio" name="upi">
+          <img src="images/image 30.png">
+        </label>
+      </div>
+
+      <div class="upi-box">
+
+        <div class="upi-form">
+          <label>Name :</label>
+          <input type="text">
+
+          <label>Enter UPI ID</label>
+          <input type="text">
+
+          <button class="proceed-btn" id="payBtn">Proceed</button>
+        </div>
+
+        <img src="images/image 58.png" class="upi-logo">
+
+        <!-- ✅ SUCCESS MESSAGE -->
+<div class="payment-success" id="successBox">
+  <div class="check-icon">✔</div>
+  <p>Payment successfully done</p>
+  <!-- Redirect to another page when OK is clicked -->
+  <button class="proceed-btn" onclick="redirectPage()">OK</button>
+</div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+ <footer>
+    <div class="footer-container">
+      <!-- Logo -->
+      <div class="footer-logo">
+        <img src="images/Frame 427318985.png" alt="Logo">
+        <h1 style="font-family: 'Dancing Script', cursive; font-size: 22px; font-weight: 400;">VibeyGiftoy</h1>
+      </div>
+
+      <!-- Links Columns -->
+      <div class="footer-links">
+        <div>
+          <a href="#">Customer service</a>
+          <a href="#">My Account</a>
+          <a href="#">Checkup</a>
+          <a href="#">FAQ</a>
+          <a href="#">Return</a>
+        </div>
+
+        <div>
+          <a href="#">Company</a>
+          <a href="#">About us</a>
+          <a href="#">Blogs</a>
+          <a href="#">Contact us</a>
+          <a href="#">Career</a>
+        </div>
+
+        <div>
+          <a href="#">Our information</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms & Condition</a>
+          <a href="#">Customer Feed back</a>
+        </div>
+      </div>
+
+      <!-- Contact Column -->
+      <div class="footer-contact">
+        <span>Mobile: 123-456-789</span>
+        <span>Email: Vibeygif@gmail.com</span>
+        <span>Address: 12, north city-001</span>
+
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+     <p> &copy; 2025 Giftey.co. All rights reserved.<br>
+      <a href="#"><b>Terms & Conditions</b></a> | <a href="#"><b>Privacy Policy</b></a></p>
+    </div>
+  </footer>
+<script src="js/profile.js"></script>
+<script>
+  const payBtn = document.getElementById('payBtn');
+  const successBox = document.getElementById('successBox');
+
+  payBtn.addEventListener('click', () => {
+    successBox.style.display = 'flex';   // show popup on click
+  });
+
+  // Redirect function
+  function redirectPage() {
+    window.location.href = "myorder.html"; // Replace with your target page
+  }
+</script>
+
+
+</body>
+</html>

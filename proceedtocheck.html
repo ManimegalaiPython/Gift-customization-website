@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Checkout Page</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+ <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+<style>
+*{
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  margin:0;
+  padding:40px;
+  background:#fff;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: #fff;
+}
+
+/* Logo */
+.logo-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-section img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.logo-section h2{
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* Navbar */
+.nav{
+  display: flex;
+  gap: 35px;
+}
+
+.nav a{
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.nav a.active{
+  color: #F1C40F;
+}
+
+/* Right Section */
+.right-section{
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Search */
+.search-box{
+  display: flex;
+  align-items: center;
+  border: 2px solid #F1C40F;
+  border-radius: 12px;
+  padding: 10px 15px;
+  gap: 10px;
+}
+
+.search-box input{
+  border: none;
+  outline: none;
+  font-size: 16px;
+  width: 220px;
+}
+
+.search-box i{
+  font-size: 18px;
+}
+
+/* Icons */
+.icons{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    position:relative;
+}
+
+.profile{
+    width:32px;
+    cursor:pointer;
+}
+
+/* Dropdown */
+.profile-dropdown{
+    position:absolute;
+    top:50px;
+    right:0;
+    width:240px;
+    background:#F1C40F;
+    padding:15px;
+    display:none;
+    z-index:100;
+}
+
+/* Title */
+.profile-dropdown h3{
+    font-size:16px;
+    margin-bottom:10px;
+}
+.menu-item {
+      background:#000;
+
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  padding:8px 12px;
+    margin-bottom:8px;
+  cursor: pointer;
+}
+
+
+
+
+/* Divider */
+.divider{
+    border-bottom:2px dotted #000;
+    margin-bottom:12px;
+}
+
+/* Menu items */
+.menu-item{
+    color:#fff;
+    
+    font-size:14px;
+    cursor:pointer;
+}
+
+/* Bell Wrapper */
+.bell-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Notification Popup */
+.notification-popup {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 1020px;
+  background: #F1C40F;
+  color: #000;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+  display: none;
+  z-index: 999;
+}
+
+/* Show popup */
+.notification-popup.show {
+  display: block;
+}
+
+.notification-popup h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.notification-popup p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+/* Close Button */
+.close-popup {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.checkout-wrapper{
+  display:flex;
+  gap:30px;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* LEFT BILLING BOX */
+.billing-box{
+  background:#F1C40F;
+  width:60%;
+  padding:30px;
+  border-radius:15px;
+}
+
+.billing-box h2{
+  margin-bottom:20px;
+  font-size:18px;
+  font-weight:600;
+}
+
+.form-row{
+  display:flex;
+  gap:15px;
+  margin-bottom:15px;
+}
+
+.form-group{
+  flex:1;
+}
+
+.form-group label{
+  font-size:13px;
+  font-weight:500;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  height:38px;
+  border-radius:8px;
+  border:1px solid #000;
+  padding:0 10px;
+  margin-top:5px;
+  font-size:12px;
+}
+
+.full{
+  margin-bottom:15px;
+}
+
+.radio-group{
+  display:flex;
+  gap:20px;
+  margin-top:15px;
+}
+
+.radio-box{
+  background:#fff;
+  border-radius:20px;
+  padding:8px 15px;
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  border:1px solid #000;
+}
+
+/* RIGHT SIDE */
+.right-panel{
+  width:40%;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* ORDER SUMMARY */
+.summary-box{
+  border:1px solid #999;
+  border-radius:10px;
+  padding:15px;
+}
+
+.summary-box h3{
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  margin:6px 0;
+}
+
+.total{
+  margin-top:10px;
+  font-weight:600;
+}
+
+.total span:last-child{
+  color:green;
+}
+
+.pay-btn{
+  margin-top:10px;
+  width:100%;
+  background:#F1C40F;
+  border:none;
+  padding:8px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:12px;
+}
+
+/* IMAGE BOX */
+.image-box img{
+  width:100%;
+  border-radius:2px;
+  object-fit:cover;
+}
+
+
+footer {
+  background-color: #F1C40F;
+  color: #000;
+  padding: 50px 80px 30px;   /* more side padding like image */
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;  /* FIX */
+  flex-wrap: nowrap;        /* keep in one row */
+}
+
+/* LOGO */
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-logo img {
+  width: 120px;             /* FIX: logo bigger like image */
+  height: 120px;
+  border-radius: 50%;
+}
+
+/* LINKS */
+.footer-links {
+  display: flex;
+  gap: 90px;                /* FIX: proper column spacing */
+  text-align: left;
+}
+
+.footer-links div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;                /* FIX: vertical spacing */
+}
+
+.footer-links div a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 400;         /* FIX: lighter like image */
+  font-size: 20px;
+}
+
+/* CONTACT */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;                /* FIX: spacing */
+  text-align: left;
+  font-size: 20px;
+}
+
+/* SOCIAL ICONS */
+.social-icons {
+  display: flex;
+  gap: 14px;
+  margin-top: 25px;
+  justify-content: flex-end;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #000;
+  width: 42px;              /* FIX: icon size */
+  height: 42px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  margin-top: 40px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer-bottom a {
+  font-weight: 600;         /* FIX: not too bold */
+  text-decoration: none;
+  color: #000;
+}
+
+</style>
+</head>
+
+<body>
+    <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+  <header class="header">
+    <!-- Logo -->
+    <div class="logo-section">
+      <img src="images/Frame 427318985.png" alt="Logo">
+      <h2>VibeyGiftoy</h2>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="nav">
+      <a href="home1.html" class="active">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contactus.html">Contact us</a>
+      <a href="aboutus.html">About us</a>
+    </nav>
+
+    <!-- Search + Icons -->
+    <div class="right-section">
+      <div class="search-box">
+        <input type="text" placeholder="Personalization gifts">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <!-- Icons -->
+      <div class="icons">
+        <img src="images/profile.png" class="profile" onclick="toggleProfileMenu()">
+
+       <a href="wishlist.html"> <i class="fa-regular fa-heart"></i></a>
+          <a href="tray.html"> <i class="fa-solid fa-cart-shopping"></i></a>
+        <div class="bell-wrapper">
+          <i class="fa-regular fa-bell" id="bellIcon"></i>
+
+          <!-- Notification Popup -->
+          <div class="notification-popup" id="notificationPopup">
+            <span class="close-popup" id="closePopup">&times;</span>
+
+            <h4>🎁 Order / Delivery Notifications</h4>
+            <p>
+              We offer fast and reliable delivery to ensure your gifts arrive fresh,
+              on time, and beautifully packaged.
+            </p>
+            <p>
+              Choose from standard, express, or same-day delivery options at checkout.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="profile-dropdown" id="profileMenu">
+        <h3>My Accounts</h3>
+        <div class="divider"></div>
+
+        <a href="accountinfo.html" class="menu-item">Account Information</a>
+        <a href="myorder.html" class="menu-item">My Order</a>
+        <a href="tracking.html" class="menu-item">Tracking Order</a>
+        <a href="password.html" class="menu-item">Password Manager</a>
+        <a href="logout.html" class="menu-item">Logout</a>
+      </div>
+
+    </div>
+  </header>
+
+<div class="checkout-wrapper">
+
+  <!-- LEFT -->
+  <div class="billing-box">
+    <h2>Billing Details</h2>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name*</label>
+        <input type="text" placeholder="Ex.John">
+      </div>
+      <div class="form-group">
+        <label>Last Name*</label>
+        <input type="text" placeholder="Ex.Doe">
+      </div>
+    </div>
+
+    <div class="form-group full">
+      <label>Country*</label>
+      <select>
+        <option>Select Country</option>
+      </select>
+    </div>
+
+    <div class="form-group full">
+      <label>Street Address*</label>
+      <input type="text" placeholder="Enter Street Address">
+    </div>
+
+    <div class="form-group full">
+      <label>City*</label>
+      <select>
+        <option>Select City</option>
+      </select>
+    </div>
+
+    <div class="form-group full">
+      <label>State*</label>
+      <select>
+        <option>Select State</option>
+      </select>
+    </div>
+
+    <div class="form-group full">
+      <label>Zip Code*</label>
+      <select>
+        <option>Select Zipcode</option>
+      </select>
+    </div>
+
+    <div class="form-group full">
+      <label>Phone*</label>
+      <input type="text" placeholder="Enter Phone number">
+    </div>
+
+    <div class="form-group full">
+      <label>E-Mail*</label>
+      <input type="email" placeholder="Enter E-mail Id">
+    </div>
+
+    <label>Delivery Address</label>
+    <div class="radio-group">
+      <div class="radio-box">
+        <input type="radio" name="address">
+        <span>Use a different billing address</span>
+      </div>
+      <div class="radio-box">
+        <input type="radio" name="address">
+        <span>Same as shipping address</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right-panel">
+
+    <div class="summary-box">
+      <h3>Order Summary</h3>
+
+      <div class="summary-row"><span>Items</span><span>1</span></div>
+      <div class="summary-row"><span>Subtotal</span><span>Rs.1200</span></div>
+      <div class="summary-row"><span>Shipping</span><span>Rs.00.0</span></div>
+      <div class="summary-row"><span>Taxes</span><span>Rs.00.0</span></div>
+      <div class="summary-row"><span>Coupon Discount</span><span>Rs.200</span></div>
+
+      <div class="summary-row total">
+        <span>Total</span><span>₹1000</span>
+      </div>
+
+      <button class="pay-btn" onclick="window.location.href='proceedtopay.html'">Proceed to pay</button>
+    </div>
+
+    <div class="image-box">
+      <img src="images/image 52.png" alt="Gift Image">
+    </div>
+
+  </div>
+
+</div>
+ <footer>
+    <div class="footer-container">
+      <!-- Logo -->
+      <div class="footer-logo">
+        <img src="images/Frame 427318985.png" alt="Logo">
+        <h1 style="font-family: 'Dancing Script', cursive; font-size: 22px; font-weight: 400;">VibeyGiftoy</h1>
+      </div>
+
+      <!-- Links Columns -->
+      <div class="footer-links">
+        <div>
+          <a href="#">Customer service</a>
+          <a href="#">My Account</a>
+          <a href="#">Checkup</a>
+          <a href="#">FAQ</a>
+          <a href="#">Return</a>
+        </div>
+
+        <div>
+          <a href="#">Company</a>
+          <a href="#">About us</a>
+          <a href="#">Blogs</a>
+          <a href="#">Contact us</a>
+          <a href="#">Career</a>
+        </div>
+
+        <div>
+          <a href="#">Our information</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms & Condition</a>
+          <a href="#">Customer Feed back</a>
+        </div>
+      </div>
+
+      <!-- Contact Column -->
+      <div class="footer-contact">
+        <span>Mobile: 123-456-789</span>
+        <span>Email: Vibeygif@gmail.com</span>
+        <span>Address: 12, north city-001</span>
+
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+     <p> &copy; 2025 Giftey.co. All rights reserved.<br>
+      <a href="#"><b>Terms & Conditions</b></a> | <a href="#"><b>Privacy Policy</b></a></p>
+    </div>
+  </footer>
+<script src="js/profile.js"></script>
+
+</body>
+</html>
